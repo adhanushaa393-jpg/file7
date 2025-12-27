@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+struct student {
+    int roll;
+    char name[20];
+};
+
+int main() {
+    FILE *fp;
+    struct student s = {1, "Ravi"};
+
+    fp = fopen("student.txt", "w");
+    fprintf(fp, "%d %s", s.roll, s.name);
+    fclose(fp);
+
+    fp = fopen("student.txt", "r");
+    fscanf(fp, "%d %s", &s.roll, s.name);
+    printf("%d %s", s.roll, s.name);
+
+    fclose(fp);
+    return 0;
+}
